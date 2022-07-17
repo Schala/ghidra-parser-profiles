@@ -84,11 +84,13 @@ PR\ultraerror.h
 PR\ultralog.h
 PR\ultratypes.h
 PR\uportals.h
+synthinternals.h
 
 -IC:\Users\cmmeu\Downloads\n64sdk\root\ultra\usr\include
 -IC:\Users\cmmeu\Downloads\n64sdk\root\nintendo\n64kit\nustd\include
 -IC:\Users\cmmeu\Downloads\n64sdk\root\nintendo\n64kit\nusys\include
 -IC:\Users\cmmeu\Downloads\n64sdk\root\ultra\usr\src\pr\demos\detail
+-IC:\Users\cmmeu\Downloads\n64sdk\root\ultra\usr\src\pr\libsrc\libultra\audio
 -D__EXTENSIONS__
 -D_LANGUAGE_C
 -D_MIPS_SZINT=32

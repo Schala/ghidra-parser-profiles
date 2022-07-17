@@ -1,0 +1,8 @@
+png.h
+pngconf.h
+
+-IC:\Users\cmmeu\Downloads\libpng-1.0.5
+-D__MWERKS__
+-Dmacintosh
+-DMACOS
+-DTARGET_OS_MAC

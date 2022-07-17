@@ -1,0 +1,10 @@
+functions.h
+synallocvoice.c
+
+-IC:\Users\cmmeu\Documents\GitHub\ghidra-parser-profiles\Nintendo 64\n64sdk-stubs
+-D__EXTENSIONS__
+-D_LANGUAGE_C
+-D_MIPS_SZINT=32
+-D_MIPS_SZLONG=32
+-D_ULTRA64
+-DF3DEX_GBI_2
