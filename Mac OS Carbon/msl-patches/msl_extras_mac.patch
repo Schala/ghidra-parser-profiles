@@ -1,0 +1,21 @@
+diff -u "Include/utime.mac.h" "e/utime.mac.h"
+--- "Include/utime.mac.h"	2022-08-04 19:23:52.222220800 -0700
++++ "e/utime.mac.h"	2022-08-04 19:24:26.448635300 -0700
+@@ -15,7 +15,7 @@
+ #ifndef _MSL_UTIME_MAC_H
+ #define _MSL_UTIME_MAC_H
+ 
+-#pragma options align=native
++
+ 
+ _MSL_BEGIN_EXTERN_C	/*- cc 010410 -*/
+ 
+@@ -27,7 +27,7 @@
+ 
+ _MSL_END_EXTERN_C	/*- cc 010410 -*/
+ 
+-#pragma options align=reset
++
+ 
+ #endif /* _MSL_UTIME_MAC_H */
+ 

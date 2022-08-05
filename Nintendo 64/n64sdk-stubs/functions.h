@@ -65,5 +65,6 @@ void __osViSwapContext(void);
 void _Ldtob(_Pft* args, u8 type);
 void _Litob(_Pft* args, u8 type);
 lldiv_t lldiv(s64 num, s64 denom);
+OSMesgQueue* osPiGetCmdQueue(void);
 
 #endif

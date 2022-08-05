@@ -1,0 +1,63 @@
+diff -ru "Include/sys/stat.h" "d/sys/stat.h"
+--- "Include/sys/stat.h"	2022-08-04 19:14:04.518245500 -0700
++++ "d/sys/stat.h"	2022-08-04 19:16:15.592665900 -0700
+@@ -83,7 +83,7 @@
+ 	
+ 	_MSL_BEGIN_EXTERN_C
+ 	
+-		#pragma options align=native
++		
+ 		
+ 		struct stat
+ 		{
+@@ -102,7 +102,7 @@
+ 			long		st_blocks;				/* blocks allocated for file 		*/
+ 		};
+ 		
+-		#pragma options align=reset
++		
+ 		
+ 		_MSL_IMP_EXP_C int _MSL_CDECL chmod(const char *, mode_t); 
+ 		_MSL_IMP_EXP_C int _MSL_CDECL fstat(int , struct stat *);
+diff -ru "Include/utime.h" "d/utime.h"
+--- "Include/utime.h"	2022-08-04 19:13:49.572436900 -0700
++++ "d/utime.h"	2022-08-04 19:16:15.656683900 -0700
+@@ -17,7 +17,7 @@
+ 	#include <utime.win32.h>
+ #endif
+ 
+-#pragma options align=native
++
+ 
+ /* struct for utime */
+ struct utimbuf {
+@@ -25,7 +25,7 @@
+ 	__std(time_t) modtime;					/* modification time */
+ };
+ 
+-#pragma options align=reset
++
+ 
+ #if	(__dest_os	== __win32_os || __dest_os == __mac_os)
+ 
+diff -ru "Include/utsname.h" "d/utsname.h"
+--- "Include/utsname.h"	2022-08-04 19:13:49.575436100 -0700
++++ "d/utsname.h"	2022-08-04 19:16:15.674680400 -0700
+@@ -17,7 +17,7 @@
+ 
+ #include <ansi_parms.h>                
+ 
+-#pragma options align=native
++
+ 
+ _MSL_BEGIN_EXTERN_C
+ 
+@@ -39,7 +39,7 @@
+ 	
+ _MSL_END_EXTERN_C
+ 
+-#pragma options align=reset
++
+ 
+ #endif /*_MSL_UTSNAME_H */
+ 

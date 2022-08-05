@@ -1,0 +1,70 @@
+diff -u "Include/SIOUX.h" "c/SIOUX.h"
+--- "Include/SIOUX.h"	2022-08-04 19:01:54.219532100 -0700
++++ "c/SIOUX.h"	2022-08-04 19:01:46.060194100 -0700
+@@ -91,7 +91,7 @@
+ 
+ _MSL_END_EXTERN_C	/*- cc 010410 -*/
+ 
+-#pragma options align=reset
++
+ 
+ #endif /* _MSL_SIOUX_H */
+ 
+diff -u "Include/SIOUXGlobals.h" "c/SIOUXGlobals.h"
+--- "Include/SIOUXGlobals.h"	2022-08-04 19:01:54.225530900 -0700
++++ "c/SIOUXGlobals.h"	2022-08-04 19:01:46.066193100 -0700
+@@ -70,7 +70,7 @@
+ extern tSIOUXState	SIOUXState;				/*	Used to signal that we are trying to get a string ...*/
+ extern pSIOUXWin	SIOUXTextWindow;		/*	Pointer to the SIOUX text window structure ...*/
+ 
+-#pragma options align=reset
++
+ 
+ #endif /* _MSL_SIOUXGLOBALS_H */
+ 
+diff -u "Include/SIOUXMenus.h" "c/SIOUXMenus.h"
+--- "Include/SIOUXMenus.h"	2022-08-04 19:01:54.228531200 -0700
++++ "c/SIOUXMenus.h"	2022-08-04 19:01:46.070195400 -0700
+@@ -58,7 +58,7 @@
+ 
+ 
+ #if __MWERKS__
+-	#pragma options align=reset
++	
+ #endif
+ 
+ #endif /* _MSL_SIOUXMENUS_H */
+diff -u "Include/SIOUXPrinter.h" "c/SIOUXPrinter.h"
+--- "Include/SIOUXPrinter.h"	2022-08-04 19:01:54.233530200 -0700
++++ "c/SIOUXPrinter.h"	2022-08-04 19:01:46.076192900 -0700
+@@ -29,7 +29,7 @@
+ _MSL_END_EXTERN_C	/*- cc 010410 -*/
+ 
+ #if __MWERKS__
+-	#pragma options align=reset
++	
+ #endif
+ 
+ #endif /* _MSL_SIOUXPRINTER_H */
+Only in Include: msl_mac.patch
+diff -u "Include/setjmp.mac.h" "c/setjmp.mac.h"
+--- "Include/setjmp.mac.h"	2022-08-04 19:01:54.261528800 -0700
++++ "c/setjmp.mac.h"	2022-08-04 19:01:46.122192100 -0700
+@@ -49,7 +49,7 @@
+ 	
+ #else
+ 	
+-	#pragma options align=native
++	
+ 	
+ 	_MSL_BEGIN_NAMESPACE_STD
+ 	_MSL_BEGIN_EXTERN_C
+@@ -99,7 +99,7 @@
+ 	_MSL_END_EXTERN_C
+ 	_MSL_END_NAMESPACE_STD
+ 	
+-	#pragma options align=reset
++	
+ 	
+ #endif /* __MACH__ */
+ 

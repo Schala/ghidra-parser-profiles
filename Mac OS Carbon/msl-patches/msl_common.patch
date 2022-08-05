@@ -1,0 +1,253 @@
+diff -u "Include/ansi_fp.h" "b/ansi_fp.h"
+--- "Include/ansi_fp.h"	2022-08-04 13:43:16.846698800 -0700
++++ "b/ansi_fp.h"	2022-08-04 18:31:19.994125300 -0700
+@@ -16,7 +16,7 @@
+ 	#include <cmath>			
+ #endif
+ 
+-#pragma options align=native
++
+ 
+ _MSL_BEGIN_EXTERN_C
+ 
+@@ -58,7 +58,7 @@
+ 
+ _MSL_END_EXTERN_C
+ 
+-#pragma options align=reset
++
+ 
+ #endif /* _MSL_ANSI_FP_H */
+ 
+diff -u "Include/clocale" "b/clocale"
+--- "Include/clocale"	2022-08-04 13:43:16.928699400 -0700
++++ "b/clocale"	2022-08-04 18:31:20.206121200 -0700
+@@ -32,7 +32,7 @@
+ 	#define LC_ALL			0x3F
+ 	#define LC_LAST			LC_ALL
+ 	
+-	#pragma options align=native
++	
+ 	struct lconv 
+ 	{
+ 		char * 	decimal_point;
+@@ -60,7 +60,7 @@
+ 		char 	int_p_sign_posn; 
+ 		char 	int_n_sign_posn; 
+ 	};
+-	#pragma options align=reset
++	
+ /* end revision to match with C99 */     /*- mm 010507 -*/
+ 	
+ 	_MSL_IMP_EXP_C char			* _MSL_CDECL setlocale(int, const char *);
+diff -u "Include/cstddef" "b/cstddef"
+--- "Include/cstddef"	2022-08-04 13:43:16.977696200 -0700
++++ "b/cstddef"	2022-08-04 18:31:20.331125500 -0700
+@@ -19,7 +19,7 @@
+ _MSL_BEGIN_NAMESPACE_STD
+ _MSL_BEGIN_EXTERN_C
+ 
+-	typedef __typeof__((char*)0-(char*)0) ptrdiff_t;
++	typedef char* ptrdiff_t;
+ 
+ _MSL_END_EXTERN_C
+ _MSL_END_NAMESPACE_STD
+diff -u "Include/cstdio" "b/cstdio"
+--- "Include/cstdio"	2022-08-04 13:43:16.990694900 -0700
++++ "b/cstdio"	2022-08-04 18:31:20.363122000 -0700
+@@ -33,7 +33,7 @@
+ 
+ #ifndef RC_INVOKED
+ 
+-#pragma options align=native
++
+ 
+ _MSL_BEGIN_NAMESPACE_STD	
+ _MSL_BEGIN_EXTERN_C			
+@@ -169,7 +169,7 @@
+ 
+ _MSL_END_NAMESPACE_STD
+ 
+-#pragma options align=reset
++
+ 
+ #endif /* RC_INVOKED */
+ 
+diff -u "Include/ctime" "b/ctime"
+--- "Include/ctime"	2022-08-04 13:43:17.010696500 -0700
++++ "b/ctime"	2022-08-04 18:31:20.412125100 -0700
+@@ -35,7 +35,7 @@
+ 	#include <time.dolphin.h>
+ #endif
+ 	
+-#pragma options align=native
++
+ 
+ _MSL_BEGIN_NAMESPACE_STD
+ _MSL_BEGIN_EXTERN_C
+@@ -96,7 +96,7 @@
+ _MSL_END_EXTERN_C	
+ _MSL_END_NAMESPACE_STD	
+ 
+-#pragma options align=reset
++
+ 
+ #endif /* RC_INVOKED */
+ 
+diff -u "Include/div_t.h" "b/div_t.h"
+--- "Include/div_t.h"	2022-08-04 13:43:17.039698800 -0700
++++ "b/div_t.h"	2022-08-04 18:31:20.495124000 -0700
+@@ -10,7 +10,7 @@
+ 
+ #include <ansi_parms.h>
+ 
+-#pragma options align=native
++
+ 
+ _MSL_BEGIN_NAMESPACE_STD
+ _MSL_BEGIN_EXTERN_C
+@@ -36,7 +36,7 @@
+ _MSL_END_EXTERN_C
+ _MSL_END_NAMESPACE_STD
+ 
+-#pragma options align=reset
++
+ 
+ #endif /* _MSL_DIV_T_H */
+ 
+diff -u "Include/file_struc.h" "b/file_struc.h"
+--- "Include/file_struc.h"	2022-08-04 13:43:17.067699700 -0700
++++ "b/file_struc.h"	2022-08-04 18:31:20.571122700 -0700
+@@ -20,7 +20,7 @@
+ 
+ #ifndef RC_INVOKED
+ 
+-#pragma options align=native
++
+ 
+ _MSL_BEGIN_NAMESPACE_STD
+ _MSL_BEGIN_EXTERN_C
+@@ -191,7 +191,7 @@
+ _MSL_END_EXTERN_C
+ _MSL_END_NAMESPACE_STD
+ 
+-#pragma options align=reset
++
+ 
+ #endif /* RC_INVOKED */
+ 
+diff -u "Include/lconv.h" "b/lconv.h"
+--- "Include/lconv.h"	2022-08-04 13:43:17.088699100 -0700
++++ "b/lconv.h"	2022-08-04 18:31:20.640123100 -0700
+@@ -10,7 +10,7 @@
+ 
+ #include <ansi_parms.h>
+ 
+-#pragma options align=native
++
+ 
+ _MSL_BEGIN_NAMESPACE_STD
+ _MSL_BEGIN_EXTERN_C
+@@ -20,7 +20,7 @@
+ _MSL_END_EXTERN_C
+ _MSL_END_NAMESPACE_STD
+ 
+-#pragma options align=reset
++
+ 
+ #endif /* _MSL_LCONV_H */
+ 
+diff -u "Include/locale_api.h" "b/locale_api.h"
+--- "Include/locale_api.h"	2022-08-04 13:43:17.104699800 -0700
++++ "b/locale_api.h"	2022-08-04 18:31:20.693122500 -0700
+@@ -24,7 +24,7 @@
+ #define _COMPONENT_NAME_LEN  8			/*- mm 011130 -*/
+ #define _LOCALE_CMPT_COUNT   5			/*- mm 011130 -*/
+ 
+-#pragma options align=native
++
+ 
+ /*- begin mm 011130 insert -*/
+ #ifndef __NO_WIDE_CHAR					/*- mm 020404 -*/
+@@ -149,7 +149,7 @@
+ _MSL_END_EXTERN_C												/*- mm 020411 -*/
+ /*- end mm 011130 insert -*/
+ 
+-#pragma options align=reset
++
+ 
+ #endif /* _MSL_LOCALE_API_H */
+ 
+Only in b: msl.patch
+diff -u "Include/pool_alloc.h" "b/pool_alloc.h"
+--- "Include/pool_alloc.h"	2022-08-04 13:43:17.182695700 -0700
++++ "b/pool_alloc.h"	2022-08-04 18:31:20.883122500 -0700
+@@ -15,7 +15,7 @@
+ 	#include <ansi_parms.h>
+ 	#include <size_t.h>
+ 
+-	#pragma options align=native
++	
+ 
+ 	#define __heap_version	2									/*- jg 980115 -*/ /*- hh 990227 -*/
+ 
+@@ -45,7 +45,7 @@
+ 
+ 	_MSL_END_EXTERN_C
+ 
+-	#pragma options align=reset
++	
+ 
+ 	#endif /* _MSL_POOL_ALLOC_H */
+ 
+@@ -56,7 +56,7 @@
+ 
+ 	#include <ansi_parms.h>
+ 
+-	#pragma options align=native
++	
+ 
+ 	typedef signed long tag_word;
+ 
+@@ -137,7 +137,7 @@
+ 
+ 	_MSL_END_EXTERN_C
+ 
+-	#pragma options align=reset
++	
+ 
+ 	#endif /* _MSL_POOL_ALLOC_H */
+ 
+diff -u "Include/size_t.h" "b/size_t.h"
+--- "Include/size_t.h"	2022-08-04 13:43:17.197695200 -0700
++++ "b/size_t.h"	2022-08-04 18:31:20.932125400 -0700
+@@ -20,7 +20,7 @@
+ _MSL_BEGIN_EXTERN_C
+ 
+ 	#ifndef _MSL_SIZE_T_TYPE
+-		#define _MSL_SIZE_T_TYPE __typeof__(sizeof(0))
++		#define _MSL_SIZE_T_TYPE unsigned long
+ 	#endif
+ 	
+ 	#ifndef _MSL_SIZE_T_DEFINED
+diff -u "Include/stdio_api.h" "b/stdio_api.h"
+--- "Include/stdio_api.h"	2022-08-04 13:43:17.235698800 -0700
++++ "b/stdio_api.h"	2022-08-04 18:31:21.039123100 -0700
+@@ -21,7 +21,7 @@
+ 
+ #include <file_struc.h>     		
+ 
+-#pragma options align=native
++
+ 
+ _MSL_BEGIN_NAMESPACE_STD	
+ _MSL_BEGIN_EXTERN_C			
+@@ -94,7 +94,7 @@
+ _MSL_END_EXTERN_C	
+ _MSL_END_NAMESPACE_STD	
+ 
+-#pragma options align=reset
++
+ 
+ #endif /* _MSL_STDIO_API_H */
+ 

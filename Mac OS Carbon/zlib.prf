@@ -1,8 +1,3 @@
-zconf.h
 zlib.h
 
 -IC:\Users\cmmeu\Downloads\zlib114
--D__MWERKS__
--D__STDC__
--DMACOS
--DTARGET_OS_MAC
