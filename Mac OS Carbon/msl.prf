@@ -1,4 +1,5 @@
 MacOS_Carbon_C_Macros.h
+jni.h
 ADSP.h
 AEDataModel.h
 AEHelpers.h

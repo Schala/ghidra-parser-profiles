@@ -1,6 +1,6 @@
-diff -u "CIncludes/ConditionalMacros.h" "a/ConditionalMacros.h"
---- "CIncludes/ConditionalMacros.h"	2022-08-04 18:00:24.407062700 -0700
-+++ "a/ConditionalMacros.h"	2022-08-04 18:17:06.066468200 -0700
+diff -u "/e/Carbon Support/Universal Interfaces/CIncludes/ConditionalMacros.h" "/e/Carbon Support/Universal Interfaces/a/ConditionalMacros.h"
+--- "/e/Carbon Support/Universal Interfaces/CIncludes/ConditionalMacros.h"	2022-08-04 18:00:24.407062700 -0700
++++ "/e/Carbon Support/Universal Interfaces/a/ConditionalMacros.h"	2022-08-07 10:28:43.366038400 -0700
 @@ -298,17 +298,17 @@
       #endif
       #define PRAGMA_ONCE                 1
@@ -99,3 +99,26 @@ diff -u "CIncludes/ConditionalMacros.h" "a/ConditionalMacros.h"
          #define TARGET_OS_MAC           0
        #define TARGET_OS_WIN32         0
        #define TARGET_OS_UNIX          1
+@@ -1789,11 +1789,11 @@
+ ****************************************************************************************************/
+ #if TARGET_API_MAC_CARBON && !TARGET_API_MAC_OS8
+ #ifndef OPAQUE_TOOLBOX_STRUCTS
+-#define OPAQUE_TOOLBOX_STRUCTS 1
++#define OPAQUE_TOOLBOX_STRUCTS 0
+ #endif  /* !defined(OPAQUE_TOOLBOX_STRUCTS) */
+ 
+ #ifndef OPAQUE_UPP_TYPES
+-#define OPAQUE_UPP_TYPES 1
++#define OPAQUE_UPP_TYPES 0
+ #endif  /* !defined(OPAQUE_UPP_TYPES) */
+ 
+ #ifndef ACCESSOR_CALLS_ARE_FUNCTIONS
+@@ -1801,7 +1801,7 @@
+ #endif  /* !defined(ACCESSOR_CALLS_ARE_FUNCTIONS) */
+ 
+ #ifndef CALL_NOT_IN_CARBON
+-#define CALL_NOT_IN_CARBON 0
++#define CALL_NOT_IN_CARBON 1
+ #endif  /* !defined(CALL_NOT_IN_CARBON) */
+ 
+ #ifndef MIXEDMODE_CALLS_ARE_FUNCTIONS
