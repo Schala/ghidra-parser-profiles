@@ -1,0 +1,3 @@
+Pack off:
+	FSSpec
+	QDGlobals
