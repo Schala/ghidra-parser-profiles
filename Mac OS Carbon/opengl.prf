@@ -10,12 +10,4 @@ glm.h
 glu.h
 glut.h
 
--IE:\gl1\Headers
--IE:\Metrowerks CodeWarrior 8.0\MSL\MSL_C\MSL_MacOS\c
--IE:\Metrowerks CodeWarrior 8.0\MacOS Support\Headers\CodeCompletion
--IE:\Metrowerks CodeWarrior 8.0\MSL\MSL_Extras\MSL_Common\d
--IE:\Metrowerks CodeWarrior 8.0\MSL\MSL_Extras\MSL_Common\d\sys
--IE:\Metrowerks CodeWarrior 8.0\MSL\MSL_Extras\MSL_MacOS\e
--IE:\Carbon Support\Universal Interfaces\a
--IE:\Metrowerks CodeWarrior 8.0\MSL\MSL_C\MSL_Common\b
-
+-I/run/media/admin/New Volume/gl1Headers

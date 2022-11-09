@@ -1,3 +1,5 @@
 zlib.h
 
--IC:\Users\cmmeu\Downloads\zlib114
+-I/tmp/zlib114
+-DMACOS
+-TARGET_OS_MAC
