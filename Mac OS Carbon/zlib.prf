@@ -3,4 +3,4 @@ zlib.h
 -I/tmp/zlib
 -DMACOS
 -DTARGET_OS_MAC
--DSTDC
+-D__STDC__

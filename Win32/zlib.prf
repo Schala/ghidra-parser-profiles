@@ -1,0 +1,4 @@
+zlib.h
+
+-I/tmp/zlib
+-D_WIN32
