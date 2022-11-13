@@ -1,0 +1,5 @@
+png.h
+
+-I/tmp/libpng-1.0.5
+-D__MWERKS__
+-Dmacintosh

@@ -1,5 +1,6 @@
 zlib.h
 
--I/tmp/zlib114
+-I/tmp/zlib
 -DMACOS
--TARGET_OS_MAC
+-DTARGET_OS_MAC
+-DSTDC
