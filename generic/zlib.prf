@@ -1,0 +1,4 @@
+zlib.h
+
+-I/tmp/src
+-D__STDC__
