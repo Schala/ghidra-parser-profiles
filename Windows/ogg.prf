@@ -1,0 +1,11 @@
+ogg.h
+
+-D_WIN32
+-D_MSC_VER=0x1800
+
+C:\vcpkg\installed\x86-windows\include\ogg
+
+x86:LE:32:default
+
+windows
+

@@ -1,0 +1,11 @@
+vorbisenc.h
+vorbisfile.h
+
+-D_WIN32
+
+C:\vcpkg\installed\x86-windows\include\vorbis
+
+x86:LE:32:default
+
+windows
+
