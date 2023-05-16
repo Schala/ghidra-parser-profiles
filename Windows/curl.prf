@@ -1,0 +1,10 @@
+curl.h
+
+-D_WIN32
+
+C:\vcpkg\installed\x86-windows\include\curl
+
+x86:LE:32:default
+
+windows
+
