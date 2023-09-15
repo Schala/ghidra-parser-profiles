@@ -1,0 +1,12 @@
+glaux.h
+glcorearb.h
+glext.h
+gl.h
+glu.h
+glxext.h
+wglext.h
+wgl.h
+
+-I/usr/i686-w64-mingw32/include/GL
+-D_WIN32
+-DWGL_WGLEXT_PROTOTYPES

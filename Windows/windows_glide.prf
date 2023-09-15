@@ -1,0 +1,9 @@
+3dfx.h
+sst1vid.h
+glide.h
+
+-I/tmp/glide2x/sst1/glide/src
+-I/tmp/glide2x/sst1/init
+-I/tmp/swlibs/fxmisc
+-D_WIN32
+-D_MSC_VER
