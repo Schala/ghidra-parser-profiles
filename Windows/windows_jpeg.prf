@@ -1,0 +1,9 @@
+jpeglib.h
+
+-I/tmp/jpeg-6b
+
+
+x86:LE:32:default
+
+windows
+
