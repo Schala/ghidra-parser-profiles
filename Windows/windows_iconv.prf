@@ -1,0 +1,10 @@
+iconv.h
+localcharset.h
+
+-I/run/media/admin/FE6407F46407AE89/vcpkg/installed/x86-windows/include
+
+
+x86:LE:32:default
+
+windows
+
