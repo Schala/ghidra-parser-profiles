@@ -54,13 +54,17 @@ class Interface:
 
 
 class Field:
-	def __init__(self, name, type, array_depth=0):
+	def __init__(self, name, type, array_depth=-1):
 		self.name = name
 		self.type = type
 		self.array_depth = array_depth
 	
 	def __str__(self):
-		return f"{self.type} {self.name};\n"
+		output = f"{self.type} {self.name}"
+		if self.array_depth >= 0:
+			output += f"[{self.array_depth}]"
+		output += ";\n"
+		return output
 
 
 class Structure:
@@ -147,61 +151,81 @@ def parse_idl(context):
 	func_pat = re.compile(r"\s*(\w+)\s+(\w+)\s*\(")
 	param_pat = re.compile(r"\s*\[.*\]\s*(const)?(\w+)\s*(\*+)?(const)?\s+(\w+),?(\s*\);)?")
 	const_pat = re.compile(r"const\s+\w+\s+(\w+)\s*=\s*([\w\s\-\+\<\>]+);")
-
+	cplusplus_pat = re.compile(r"#ifdef\s+__cplusplus|(?<!!)\s*defined\s*\(\s*__cplusplus")
+	
 	curr_intf = None
 	curr_struct = None
 	curr_enum = None
 	curr_func = None
+	skip = False
+	if_depth = 0
 
 	for line in context.splitlines():
 		in_scope = bool(curr_intf or curr_enum or curr_struct or curr_func)
 
 		if not in_scope:
-			line = line.strip()
-			if not line or line.startswith("//"):
-				continue
+			if not skip:
+				line = line.strip()
+				if not line or line.startswith("//"):
+					continue
 
-			imp_match = imp_pat.match(line)
-			if imp_match:
-				elems.append(f"#include \"{imp_match.group(1)}.h\"")
-				continue
-			
-			const_match = const_pat.match(line)
-			if const_match:
-				elems.append(f"#define {const_match.group(1)} {const_match.group(2)}")
-				continue
-			
-			cpp_match = cpp_pat.match(line)
-			if cpp_match:
-				if not cpp_match.group(1).startswith("//"):
-					elems.append(cpp_match.group(1).replace(r'extern \"C\"', r'extern "C"'))
-				continue
+				imp_match = imp_pat.match(line)
+				if imp_match:
+					elems.append(f"#include \"{imp_match.group(1)}.h\"")
+					continue
+				
+				const_match = const_pat.match(line)
+				if const_match:
+					elems.append(f"#define {const_match.group(1)} {const_match.group(2)}")
+					continue
+				
+				cpp_match = cpp_pat.match(line)
+				if cpp_match:
+					if not cpp_match.group(1).startswith("//"):
+						cplusplus_match = cplusplus_pat.match(line)
+						if cplusplus_match or "#if 0" in cpp_match.group(1):
+							skip = True
+						else:
+							elems.append(cpp_match.group(1))
+					continue
 
-			enum_match = enum_pat.match(line)
-			if enum_match:
-				curr_enum = Enumeration(enum_match.group(1))
-				continue
+				enum_match = enum_pat.match(line)
+				if enum_match:
+					curr_enum = Enumeration(enum_match.group(1))
+					continue
 
-			struct_match = struct_pat.match(line)
-			if struct_match:
-				curr_struct = Structure(struct_match.group(1))
-				continue
+				struct_match = struct_pat.match(line)
+				if struct_match:
+					curr_struct = Structure(struct_match.group(1))
+					continue
 
-			# must be checked before interface parse
-			intf_fwd_match = intf_fwd_pat.match(line)
-			if intf_fwd_match:
-				fwds.append(intf_fwd_match.group(1))
-				continue
+				# must be checked before interface parse
+				intf_fwd_match = intf_fwd_pat.match(line)
+				if intf_fwd_match:
+					fwds.append(intf_fwd_match.group(1))
+					continue
 
-			intf_match = intf_pat.match(line)
-			if intf_match:
-				curr_intf = Interface(intf_match.group(1))
-				continue
+				intf_match = intf_pat.match(line)
+				if intf_match:
+					curr_intf = Interface(intf_match.group(1))
+					continue
 
-			# typedefs must be last to avoid enum/struct clashing
-			td_match = td_pat.match(line)
-			if td_match:
-				elems.append(f"typedef {td_match.group(1)};")
+				# typedefs must be last to avoid enum/struct clashing
+				td_match = td_pat.match(line)
+				if td_match:
+					elems.append(f"typedef {td_match.group(1)};")
+					continue
+			else:
+				cpp_match = cpp_pat.match(line)
+				if cpp_match:
+					if "#if" in cpp_match.group(1):
+						if_depth += 1
+						continue
+					if "#endif" in cpp_match.group(1):
+						if if_depth == 0:
+							skip = False
+							continue
+						if_depth -= 1
 				continue
 		else:
 			if curr_intf:
