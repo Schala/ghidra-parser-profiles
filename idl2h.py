@@ -149,7 +149,7 @@ def parse_idl(context):
 	enum_pat = re.compile(r"typedef\s+enum\s+(\w+)")
 	enum_const_pat = re.compile(r"\s*(\w+)\s*=\s*([\w\s\-\+\<\>]+),?")
 	func_pat = re.compile(r"\s*(\w+)\s+(\w+)\s*\(")
-	param_pat = re.compile(r"\s*\[.*\]\s*(const)?(\w+)\s*(\*+)?(const)?\s+(\w+),?(\s*\);)?")
+	param_pat = re.compile(r"\s*\[.*\]\s*(const)?(\w+)\s*(\*+)?(const)?\s+(\w+)\s*,?\s*(\);)?")
 	const_pat = re.compile(r"const\s+\w+\s+(\w+)\s*=\s*([\w\s\-\+\<\>]+);")
 	cplusplus_pat = re.compile(r"#ifdef\s+__cplusplus|(?<!!)\s*defined\s*\(\s*__cplusplus")
 	
@@ -232,6 +232,7 @@ def parse_idl(context):
 				if curr_func:
 					param_match = param_pat.match(line)
 					if param_match:
+						pdb.set_trace()
 						mytype = ""
 						if param_match.group(1):
 							mytype = "const "
